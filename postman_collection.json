@@ -1,0 +1,76 @@
+{
+  "info": {
+    "name": "Fuel Route API",
+    "description": "Collection for the Fuel Route API — plan a road trip and get optimal fuel stops.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Plan Trip — Houston to Chicago",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"start\": \"Houston, TX\",\n    \"destination\": \"Chicago, IL\"\n}"
+        },
+        "url": {"raw": "{{base_url}}/api/trips/", "host": ["{{base_url}}"], "path": ["api", "trips", ""]}
+      }
+    },
+    {
+      "name": "Plan Trip — New York to Los Angeles",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"start\": \"New York, NY\",\n    \"destination\": \"Los Angeles, CA\"\n}"
+        },
+        "url": {"raw": "{{base_url}}/api/trips/", "host": ["{{base_url}}"], "path": ["api", "trips", ""]}
+      }
+    },
+    {
+      "name": "Plan Trip — Seattle to Miami",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"start\": \"Seattle, WA\",\n    \"destination\": \"Miami, FL\"\n}"
+        },
+        "url": {"raw": "{{base_url}}/api/trips/", "host": ["{{base_url}}"], "path": ["api", "trips", ""]}
+      }
+    },
+    {
+      "name": "Validation Error — Same Start/Destination",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"start\": \"Dallas, TX\",\n    \"destination\": \"Dallas, TX\"\n}"
+        },
+        "url": {"raw": "{{base_url}}/api/trips/", "host": ["{{base_url}}"], "path": ["api", "trips", ""]}
+      }
+    },
+    {
+      "name": "Validation Error — Missing Fields",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"start\": \"Dallas, TX\"\n}"
+        },
+        "url": {"raw": "{{base_url}}/api/trips/", "host": ["{{base_url}}"], "path": ["api", "trips", ""]}
+      }
+    }
+  ]
+}
